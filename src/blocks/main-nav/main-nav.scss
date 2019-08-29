@@ -1,0 +1,104 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.main-nav {
+
+	$block-name:                &; // #{$block-name}__element
+
+	position: relative;
+	z-index: 10;
+
+	// первый уровень
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+
+		&_lvl-2 {
+			display: block;
+		}
+
+		&_lvl-3 {
+			display: block;
+		}
+	}
+
+	&__item {
+		position: relative;
+		list-style-image: none;
+
+		&_active {
+
+			& > #{$block-name}__link { // stylelint-disable-line  selector-combinator-blacklist
+				color: #000;
+			}
+		}
+	}
+
+	&__link {
+		display: block;
+		padding: 0.5em 1em;
+		text-decoration: none;
+		background-color: #fff;
+		@include transit(all,200ms);
+
+		@include hover-focus {
+			text-decoration: none;
+			background-color: #999;
+		}
+	}
+
+	&__sublist-wrapper {
+
+		&_lvl-2 {
+
+			position: absolute;
+			z-index: -1;
+			top: 100%;
+			left: 0;
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+			overflow: hidden;
+			transition: opacity 200ms;
+
+			// stylelint-disable
+			#{$block-name}__item_show-child > &,
+			#{$block-name}__item:hover & {
+				height: auto;
+				overflow: visible;
+				opacity: 1;
+				visibility: visible;
+				z-index: 1;
+			}
+			// stylelint-enable
+		}
+
+		&_lvl-3 {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 100%;
+			opacity: 0;
+			height: 0;
+			overflow: hidden;
+			transition: opacity 200ms;
+
+			// stylelint-disable
+			#{$block-name}__item_show-child > &,
+			#{$block-name}__item_lvl-2:hover & {
+				height: auto;
+				overflow: visible;
+				opacity: 1;
+				visibility: visible;
+				z-index: 1;
+			}
+			// stylelint-enable
+		}
+	}
+
+}

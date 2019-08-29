@@ -1,0 +1,30 @@
+extends ../pug/template.pug
+
+block variables
+	- var page_class = "index"
+	- var isLogin = false
+
+block meta
+	title Главная
+	meta(name='description', content='')
+
+//- block append head
+//-   link(rel='stylesheet', href='css/some.css')
+
+//- block pixel-glass-templates
+	//- include ../../pixel-glass-teplates/index-lg.html
+
+block page
+
+	//- --- СЛАЙДЕР БАНЕРЫ ---
+	section.index__slider
+		//- +owl-carousel('promo')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-1.jpg")')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-2.jpg")')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-3.jpg")')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-4.jpg")')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-5.jpg")')
+		//- 	.index__slide(style='background-image: url("images/indx-slide-6.jpg")')
+
+//- block append page-bottom
+//-   script(src='js/some.js')

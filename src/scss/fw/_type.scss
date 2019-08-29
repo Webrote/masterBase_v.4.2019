@@ -1,0 +1,90 @@
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	margin-bottom: $headings-margin-bottom;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	line-height: $headings-line-height;
+	color: $headings-color;
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+
+// Type display classes
+.display-1 {
+	font-size: $display1-size;
+	font-weight: $display1-weight;
+	line-height: $display-line-height;
+}
+.display-2 {
+	font-size: $display2-size;
+	font-weight: $display2-weight;
+	line-height: $display-line-height;
+}
+.display-3 {
+	font-size: $display3-size;
+	font-weight: $display3-weight;
+	line-height: $display-line-height;
+}
+.display-4 {
+	font-size: $display4-size;
+	font-weight: $display4-weight;
+	line-height: $display-line-height;
+}
+
+hr {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+small,
+.small {
+	font-size: 80%;
+	font-weight: $font-weight-normal;
+}
+
+mark,
+.mark {
+	padding: 0 3px;
+	background-color: #ffec82;
+}
+	
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+.list-inline {
+	padding-left: 0;
+	list-style: none;
+}	
+.list-inline-item{
+	display: inline-block;
+
+	&:not(:last-child){
+		margin-right: 0.5rem;
+	}
+}
+.initialism {
+	font-size: 90%;
+	text-transform: uppercase;
+}
+// Blockquotes
+.blockquote {
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+}
+.blockquote-footer{
+	display: block;
+	font-size: 80%;
+	color: #6C757D;
+
+	&::before {
+		content: "\2014 \00A0";
+	}
+}

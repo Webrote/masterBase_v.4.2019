@@ -1,0 +1,26 @@
+// В этом файле должны быть стили для БЭМ-блока iconsvg, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.iconsvg {
+
+	$block-name:                &; // #{$block-name}__element
+	
+	&_block {
+		display: block;
+	}
+	
+	&_flex {
+		display: flex;
+	}
+
+	&_inline-block {
+		display: inline-block;
+	}
+
+	// &_fill-orange {
+	// 	svg {
+	// 		fill: $orange;
+	// 	}
+	// }
+}

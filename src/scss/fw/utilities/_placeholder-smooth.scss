@@ -1,0 +1,19 @@
+// Плавное затухание плейсхолдера при фокусе на элементы
+
+@if ($placeholder-smoth) {
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	textarea{
+		@include input-placeholder(opacity,1, true);
+	}
+		
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus,
+	input[type="tel"]:focus,
+	textarea:focus{
+		@include input-placeholder(opacity,0);
+	}
+}

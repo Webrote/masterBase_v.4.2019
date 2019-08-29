@@ -1,0 +1,4 @@
+// Transition
+@mixin transit($prop: all, $dur: 300ms, $delay: 0ms, $func: ease-in-out) {
+	transition: $prop $func $dur $delay;
+}

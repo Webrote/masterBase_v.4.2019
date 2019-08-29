@@ -1,0 +1,54 @@
+//- Все примеси в этом файле должны начинаться c имени блока (iconsvg)
+
+mixin iconsvg(iconId, mods, props)
+
+	//- Принимает:
+	//- 	iconId {string} - ID svg-картинки
+	//-   	mods    {string} - список модификаторов
+	//-  	props {object} - объект со свойствами
+	//- Вызов:
+		+iconsvg('marker-util', 'some-mod', {'width':17,'height':20,'fill':'#000'})
+		+iconsvg('marker-util', 'some-mod', {'width':17,'height':20})(href="/")
+
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' iconsvg_' + modsList[i].trim();
+			}
+		}
+		// console.log(sizeProps)
+
+		var styleStr = '';
+		var unitPx = 'px';
+		
+		if (props !== undefined) {
+			for (prop in props) {
+				// console.log(prop + ':' + props[prop]);
+				styleStr += prop + ':' + props[prop] + ((prop == 'width' || prop == 'height') ? unitPx : '') + ';';
+			}
+
+			// console.log(styleStr);
+
+			// if (sizeProps.width) {
+			// 	styleStr += 'width:'+sizeProps.width+'px; ';
+			// }
+			// if (sizeProps.height) {
+			// 	styleStr += 'height:'+sizeProps.height+'px; ';
+			// }
+		}
+
+	
+	//- передан href — это ссылка
+	if (attributes.href)
+		a.iconsvg(class=allMods)&attributes(attributes)
+			svg(style=styleStr)
+				use(xlink:href="img/sprite.svg#"+iconId)
+	
+	//- иначе это span
+	else
+		span.iconsvg(class=allMods)&attributes(attributes)
+			svg(style=styleStr)
+				use(xlink:href="img/sprite.svg#"+iconId)

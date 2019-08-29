@@ -1,0 +1,22 @@
+@mixin vertical-rhythm($sides, $color, $type: 'margin' , $levels: $vertical-levels, $breakpoints: $grid-breakpoints) {
+	
+	@each $breakpoint, $indent in map-get($levels, $color) {
+		@include media-breakpoint-up($breakpoint, $breakpoints) {
+			
+			@if $type == margin {
+				@each $side in $sides {
+					@if $side == t {margin-top: $indent;}
+					@if $side == b {margin-bottom: $indent;}
+				}
+			}
+
+			@if $type == padding {
+				@each $side in $sides {
+					@if $side == t {padding-top: $indent;}
+					@if $side == b {padding-bottom: $indent;}
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,78 @@
+//- Все примеси в этом файле должны начинаться c имени блока (pagination)
+
+mixin pagination(mods)
+
+	//- Принимает:
+	//-   mods  {string} - список модификаторов
+	//- Вызов:
+				+pagination()
+					+pagination-arrow('<i class="i-dbl-angle-arrow-left"></i>', true)
+					+pagination-arrow('<i class="i-angle-arrow-left"></i>', true)
+					span.pagination__space
+					+pagination-item('1', '/1', true)
+					//- +pagination-item('...')
+					+pagination-item('2', '/2')
+					+pagination-item('3', '/3')
+					+pagination-item('4', '/4')
+					+pagination-item('5', '/5')
+					+pagination-item('...')
+					+pagination-item('25', '/25')
+					psan.pagination__space
+					+pagination-arrow('<i class="i-angle-arrow-right"></i>')
+					+pagination-arrow('<i class="i-dbl-angle-arrow-right"></i>')
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' pagination_' + modsList[i].trim();
+			}
+		}
+
+	.pagination(class=allMods, aria-label='Page navigation')&attributes(attributes)
+		block
+
+
+
+mixin pagination-item(text, href, active, mods)
+
+	//- Принимает:
+	//-   text   {string} - содержимое пункта
+	//-   href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
+	//-   active {bool}   - флаг «это активный пункт»
+	//-   mods   {string} - список модификаторов
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' pagination__item_' + modsList[i].trim();
+			}
+		}
+		if(typeof(active) !== 'undefined' && active) {
+			allMods = allMods + ' pagination__item_active';
+		}
+
+	if(typeof(href) !== 'undefined' && href)
+		a.pagination__item(class=allMods, href=href)&attributes(attributes)!= text
+	else
+		span.pagination__item(class=allMods)&attributes(attributes)!= text
+
+
+mixin pagination-arrow(text, disable, mods)
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' pagination__item_' + modsList[i].trim();
+			}
+		}
+		if(typeof(disable) !== 'undefined' && disable) {
+			allMods = allMods + ' pagination__arrow_disable';
+		}
+
+	a.pagination__item.pagination__arrow(class=allMods, href="")&attributes(attributes) !{text}

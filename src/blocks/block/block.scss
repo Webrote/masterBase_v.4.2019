@@ -1,0 +1,119 @@
+// В этом файле должны быть стили для БЭМ-блока block, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.block {
+	$block-name:                &; // #{$block-name}__element
+
+	position: relative;
+	
+	// Цветовые схемы
+	
+	// - pink ------
+	// &_pink {
+	// 	@include vertical-rhythm((t b), pink, padding);
+	// }
+	// &_pink-t {
+	// 	@include vertical-rhythm((t), pink, padding);
+	// }
+	// &_pink-b {
+	// 	@include vertical-rhythm((b), pink, padding);
+	// }
+
+	// - green ------
+	// &_green {
+	// 	@include vertical-rhythm((t b), green, padding);
+	// }
+	// &_green-t {
+	// 	@include vertical-rhythm((t), green, padding);
+	// }
+	// &_green-b {
+	// 	@include vertical-rhythm((b), green, padding);
+	// }
+
+	// - blue ------
+	// &_blue {
+	// 	@include vertical-rhythm((t b), blue, padding);
+	// }
+	// &_blue-t {
+	// 	@include vertical-rhythm((t), blue, padding);
+	// }
+	// &_blue-b {
+	// 	@include vertical-rhythm((b), blue, padding);
+	// }
+
+	// - yellow ------
+	// &_yellow {
+	// 	@include vertical-rhythm((t b), yellow, padding);
+	// }
+	// &_yellow-t {
+	// 	@include vertical-rhythm((t), yellow, padding);
+	// }
+	// &_yellow-b {
+	// 	@include vertical-rhythm((b), yellow, padding);
+	// }
+
+	// - orange ------
+	// &_orange {
+	// 	@include vertical-rhythm((t b), orange, padding);
+	// }
+	// &_orange-t {
+	// 	@include vertical-rhythm((t), orange, padding);
+	// }
+	// &_orange-b {
+	// 	@include vertical-rhythm((b), orange, padding);
+	// }
+
+	// - red ------
+	// &_red {
+	// 	@include vertical-rhythm((t b), red, padding);
+	// }
+	// &_red-t {
+	// 	@include vertical-rhythm((t), red, padding);
+	// }
+	// &_red-b {
+	// 	@include vertical-rhythm((b), red, padding);
+	// }
+
+
+
+	// padding left / right
+	&_pl-1 {
+		@include media-breakpoint-up(md) {
+			padding-left: 5%;
+		}
+	}
+	&_pr-1 {
+		@include media-breakpoint-up(md) {
+			padding-right: 5%;
+		}
+	}
+
+
+	// Block background colored
+	&_bg-color-white {
+		background-color: #fff;
+	}
+
+	// Block background patternt
+	// &_bg-pattern {
+	// 	background-image: url("../img/pattern.png");
+	// 	background-repeat: no-repeat;
+	// 	background-position: right center;
+		
+	// 	@include media-breakpoint-down(xs) {
+	// 		margin-left: -15px;
+	// 		margin-right: -15px;
+	// 		padding-left: 15px;
+	// 		padding-right: 15px;
+	// 	}
+	// }
+
+	&_bg-img {
+		position: relative;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+}

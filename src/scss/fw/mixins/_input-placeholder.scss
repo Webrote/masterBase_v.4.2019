@@ -1,0 +1,38 @@
+// Изменения свойств плейсхолдера
+@mixin input-placeholder($prop, $value, $isTransition: false) {
+	@if $isTransition {
+		&::-webkit-input-placeholder {
+			#{$prop}: $value;
+			transition: opacity 0.3s ease;
+		}
+			
+		&:-moz-placeholder {
+			#{$prop}: $value;
+			transition: opacity 0.3s ease;
+		}
+			
+		&::-moz-placeholder {
+			#{$prop}: $value;
+			transition: opacity 0.3s ease;
+		}
+			
+		&:-ms-input-placeholder {
+			#{$prop}: $value;
+			transition: opacity 0.3s ease;
+		}
+
+	} @else {
+		&::-webkit-input-placeholder {
+			#{$prop}: $value;
+		}
+		&:-moz-placeholder {
+			#{$prop}: $value;
+		}
+		&::-moz-placeholder {
+			#{$prop}: $value;
+		}
+		&:-ms-input-placeholder {
+			#{$prop}: $value;
+		}
+	}
+}

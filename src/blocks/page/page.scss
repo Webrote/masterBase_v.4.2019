@@ -1,0 +1,58 @@
+// Стилизация БЭМ-блока page.
+// Общие стили тегов.
+// Подключение шрифтов.
+// Типографика.
+
+
+// Сделаем viewport великим снова! (привет, IE10) http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@at-root {
+
+	@-ms-viewport {
+		width: device-width;
+	}
+}
+
+
+/* stylelint-disable */
+// @font-face {
+//   font-family: 'FONTNAME';
+//   src: url('../fonts/FONTNAME.woff2') format('woff2'),
+//        url('../fonts/FONTNAME.woff') format('woff');
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+/* stylelint-enable */
+
+
+.page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	
+	&__inner {
+		flex-grow: 1;
+		@include spacer-up(xs, b, 20px)
+	}
+
+	&__footer{
+		flex-shrink: 0;
+	}
+
+	&__breadcrumbs {
+		margin-bottom: 100px;
+		
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
+	}		
+
+	&__search {
+		// position absolute
+		// top -70px
+		// right 0px
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 40px;
+	}
+}

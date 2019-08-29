@@ -1,0 +1,47 @@
+//- Стандартный шаблон страницы
+include mixins.pug
+
+block variables
+	- var page_heading_titile // заголовок страницы
+	- var breadcrumb_chain // Массив с хлебными крошками
+	- var page_class
+	- var isLogin = true
+	
+doctype html
+html(class='no-js', lang="ru")
+	head
+		meta(name="robots", content="noindex, nofollow")
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes")
+
+		
+		<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<![endif]-->
+
+		block meta
+			title Title
+
+		block head
+			link(rel='stylesheet', href='css/style.css')
+			script
+				include ../js/head-script.js
+		
+		block pixel-glass-templates
+			
+	body
+		noscript У вас отключен JavaScript.
+		
+		.page.container(class= (page_class))
+			.page__inner
+				//- +header()
+
+				block page
+
+			.page__footer
+				//- +footer("footer")
+
+		
+		block page-bottom
+			script(src='js/bundle.js')

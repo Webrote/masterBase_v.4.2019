@@ -1,0 +1,144 @@
+// В этом файле должны быть стили для БЭМ-блока pagination, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+
+  &__item {
+    display: block;
+    min-width: 2em;
+    // border: 1px solid $border-color;
+    padding: 0.3em 0.6em;
+    text-decoration: none;
+    text-align: center;
+    color: $text-color;
+
+    & + & {
+      border-left: 0;
+    }
+
+    &:hover,// В этом файле должны быть стили для БЭМ-блока pagination, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.pagination {
+
+  $block-name:                &; // #{$block-name}__element
+
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  // margin-top: 1em;
+  // margin-bottom: 1em;
+
+  &__item {
+    display: block;
+    // min-width: 2em;
+    // border: 1px solid $border-color;
+    background-color: $pagination-bg;
+    padding: $pagination-padding-vertical $pagination-padding-horizontal;
+    text-decoration: none;
+    text-align: center;
+    color: $pagination-color;
+    margin-right: 8px;
+    border-radius: 3px;
+    @include btn-drop-shadow;
+    @include transit(all, 200ms);
+
+    // & + & {
+    //  border-left: 0;
+    // }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $text-color;
+    }
+
+    @at-root a#{&} {
+
+      &:hover,
+      &:focus {
+        color: $pagination-hover-color;
+        background-color: $pagination-hover-bg;
+      }
+    }
+
+    @at-root span#{&} {
+      cursor: default;
+    }
+
+    &_active {
+      color: $pagination-active-color;
+      background-color: $pagination-active-bg;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    line-height: 1;
+    height: 31px;
+    width: 31px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+    
+    &_disable {
+      background-color: #F7F7F7;
+      border-color: #F7F7F7;
+      color: #D1D2D3;
+      pointer-events: none;
+    }
+  }
+
+  // &__item {
+  //  & + #{$block-name}__arrow {
+  //    margin-left: 10px;
+  //  }
+  // }
+
+  // &__arrow {
+  //  & + #{$block-name}__item {
+  //    margin-left: 10px;
+  //  }
+  // }
+  
+  &__space {
+    width: 15px;
+  }
+
+  &_center {
+    justify-content: center;
+  }
+}
+
+    &:focus {
+      text-decoration: none;
+      color: $text-color;
+    }
+
+    @at-root a#{&} {
+
+      &:hover,
+      &:focus {
+        background-color: $gray-lightest;
+      }
+    }
+
+    @at-root span#{&} {
+      cursor: default;
+    }
+
+    &--active {
+      background-color: $gray-lightest;
+    }
+  }
+}

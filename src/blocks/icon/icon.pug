@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (icon)
+
+mixin icon(iconClass, mods)
+
+	//- Принимает:
+	//-   classCod    {string} - класс иконки
+	//-   mods    {string} - список модификаторов
+	//- Вызов:
+		+icon('i-icon', 'some-mod')(href='/')
+		+icon('i-icon', 'some-mod')
+
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' icon_' + modsList[i].trim();
+			}
+		}
+
+		allMods += ' ' + iconClass;
+	
+	//- передан href — это ссылка
+	if (attributes.href)
+		a.icon(class=allMods)&attributes(attributes)
+	else
+		span.icon(class=allMods)&attributes(attributes)

@@ -1,0 +1,24 @@
+//- Все примеси в этом файле должны начинаться c имени блока (slider-control)
+
+mixin slider-control(id, dots, mods)
+
+	//- Принимает:
+	//-   id 	{string} -  идентификатор контрола
+	//-   dats    {boolean} - есть ли точки
+	//-   mods    {string} - список модификаторов
+	//- Вызов:
+		+slider-control('id', 'some-mod')
+
+	-
+		// список модификаторов
+		var allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			var modsList = mods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' slider-control_' + modsList[i].trim();
+			}
+		}
+
+	.slider-control(id=id , class=allMods)&attributes(attributes)
+		if dots
+			.slider-control__dots

@@ -1,0 +1,26 @@
+@mixin spacer-up($breakpoint, $side, $size) {
+	@include media-breakpoint-up($breakpoint) {
+		@if $side == t {margin-top: $size;}
+		@if $side == b {margin-bottom: $size;}
+		@if $side == l {margin-left: $size;}
+		@if $side == r {margin-right: $size;}
+	}
+}
+		
+@mixin spacer-down($breakpoint, $side, $size){
+	@include media-breakpoint-down($breakpoint) {
+		@if $side == t {margin-top: $size;}
+		@if $side == b {margin-bottom: $size;}
+		@if $side == l {margin-left: $size;}
+		@if $side == r {margin-right: $size;}
+	}
+}
+		
+@mixin spacer-between($lower, $upper, $side, $size) {
+	@include media-breakpoint-between($lower, $upper) {
+		@if $side == t {margin-top: $size;}
+		@if $side == b {margin-bottom: $size;}
+		@if $side == l {margin-left: $size;}
+		@if $side == r {margin-right: $size;}
+	}
+}

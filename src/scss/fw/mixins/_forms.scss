@@ -1,0 +1,75 @@
+@mixin field-text {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  min-height: calc(1.5em + 5px + 5px + 2px); // Привет, IE
+  margin: 0;
+  border: 1px solid hsl(0, 0%, 60%);
+  border-radius: 3px;
+  padding: 5px  12px;
+  line-height: 1.5;
+  font-size: 1em;
+  font-family: inherit;
+  background-color: #fff;
+  -moz-appearance: textfield; // stylelint-disable-line
+  appearance: textfield;
+
+  &:focus {
+    @include field-focus;
+  }
+
+  &[disabled],
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: hsl(0, 0%, 80%);
+  }
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration,
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none; // stylelint-disable-line  property-no-vendor-prefix
+  }
+
+  &[type='color'] {
+    padding: 0;
+  }
+
+  &::placeholder {
+    color: $text-muted;
+    opacity: 1;
+  }
+}
+@mixin field-help-text {
+	$text-color--muted:         hsl(0, 0%, 50%) !default;
+	$font-size--small:          0.75em !default;
+
+	display: block;
+	padding-top: 0.4em;
+	font-size: $font-size--small;
+	line-height: 1.2em;
+	color: $text-color--muted;
+
+	&:empty { // stylelint-disable-line
+		display: none;
+	}
+}
+
+
+@mixin field-focus {
+	$color-main:                hsl(208, 98%, 43%) !default;
+	$opacity:                   0.7 !default;
+
+	outline: 0;
+	box-shadow: 0 0 0 2px rgba($color-main, $opacity);
+}
+
+
+@mixin field-name {
+	$line-height:                 1.375em !default;
+
+	display: block;
+	margin-bottom: 0.4em;
+	line-height: $line-height;
+	font-weight: 700;
+}
